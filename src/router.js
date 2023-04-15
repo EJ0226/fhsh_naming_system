@@ -2,7 +2,6 @@ import { createRouter, createWebHashHistory } from "vue-router";
 
 import admin from "./page/Admin.vue";
 import login from "./page/Login.vue";
-// import edit from "./page/edit.vue";
 import create from "./page/create.vue";
 import hint from "./page/Hint.vue";
 import material from "./page/Material.vue";
@@ -21,7 +20,6 @@ const routes = [
   { path: "/material", component: material },
   { path: "/admin", component: admin },
   { path: "/shopAdmin", component: shopAdmin },
-  // { path: "/edit", component: edit },
   { path: "/create", component: create },
   { path: "/reserve", component: reserve },
   { path: "/shoppingCart", component: shoppingCart },
