@@ -1,38 +1,21 @@
-import vue from 'rollup-plugin-vue'
-import commonjs from '@rollup/plugin-commonjs'
-import resolve from '@rollup/plugin-node-resolve'
-import babel from '@rollup/plugin-babel'
-import json from '@rollup/plugin-json'
-import postcss from 'rollup-plugin-postcss'
-import replace from '@rollup/plugin-replace'
+import vue from 'rollup-plugin-vue';
+import babel from 'rollup-plugin-babel';
+import commonjs from 'rollup-plugin-commonjs';
+import resolve from 'rollup-plugin-node-resolve';
 
 export default {
   input: 'src/main.js',
   output: {
-    file: 'bundle.js',
+    file: 'dist/bundle.js',
     format: 'cjs',
   },
   plugins: [
-    vue({
-      css: true,
-      compileTemplate: true,
+    vue(),
+    babel({
+      exclude: 'node_modules/**',
+      presets: ['@babel/preset-env'],
     }),
     commonjs(),
     resolve(),
-    babel({
-      babelHelpers: 'bundled',
-      exclude: 'node_modules/**',
-    }),
-    json(),
-    postcss({
-      plugins: [],
-      extract: false,
-      minimize: true,
-      sourceMap: 'inline',
-    }),
-    replace({
-      'process.env.NODE_ENV': JSON.stringify('production'),
-    }),
   ],
-  external: ['vue'],
-}
+};
