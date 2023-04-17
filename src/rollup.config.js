@@ -10,12 +10,27 @@ export default {
     format: 'cjs',
   },
   plugins: [
-    vue(),
+    resolve({
+      mainFields: ['module', 'main'],
+    }),
+    commonjs({
+      include: /node_modules/,
+      namedExports: {
+        'node_modules/lodash/lodash.js': [
+          'get',
+          'isEmpty',
+          'isEqual',
+          'cloneDeep',
+        ],
+      },
+    }),
+    vue({
+      css: true,
+      compileTemplate: true,
+    }),
     babel({
       exclude: 'node_modules/**',
       presets: ['@babel/preset-env'],
     }),
-    commonjs(),
-    resolve(),
   ],
 };
