@@ -1,0 +1,52 @@
+<script setup>
+import minusSvg from "../assets/minus-solid.svg";
+import editSvg from "../assets/pen-to-square-solid.svg";
+
+const props = defineProps(["product", "price"]);
+</script>
+
+<template>
+  <div class="flex mt-[50px]">
+    <div
+      class="h-[25vw] w-[25vw] border-2 border-[#000000] rounded-[2vw]"
+    ></div>
+    <div class="ml-[2vw] mt-[-2vw]">
+      <p class="mt-[2vw] text-[3vw] font-blod">
+        {{ product }}
+      </p>
+      <p class="mt-[2vw] text-[3vw] font-blod">${{ price }}</p>
+      <button
+        @click="gotomaterial"
+        class="w-[10vw] h-[5vw] text-[#ffffff] rounded-[1.7vw] font-black mt-[2vw] shadow-2xl bg-[#F28383] text-[2vw]"
+      >
+        VIEW
+      </button>
+      <div class="flex mt-[20px] justify-evenly">
+        <button
+          class="w-[4vw] h-[4vw] rounded-[40px] border-2 border-[#000000] flex justify-center items-center"
+        >
+          <img :src="minusSvg" alt="minusSvg" class="w-[20px] h-[20px]" />
+        </button>
+        <button
+          @click="goToEdit"
+          class="w-[4vw] h-[4vw] rounded-[40px] border-2 border-[#000000] flex justify-center items-center ml-[10px]"
+        >
+          <img :src="editSvg" alt="editSvg" class="w-[20px] h-[20px]" />
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  methods: {
+    goToEdit() {
+      this.$router.push("/Edit");
+    },
+    goToMaterial() {
+      this.$router.push("/Material");
+    },
+  },
+};
+</script>

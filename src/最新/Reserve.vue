@@ -1,19 +1,31 @@
 <script setup>
 import Order from "../components/Order.vue";
 
-//把下單後的訂單資料顯示在網頁上 並可以做刪除訂單的動作
 const Orders = [
   { num: "12345678", name: "812020", number: "83233" },
   { num: "9210290", name: "829393", number: "83201" },
 ];
 </script>
+<script>
+export default {
+  methods: {
+    gotoadminfrontpage() {
+      this.$router.push("/adminfrontpage");
+    },
+  },
+};
+</script>
 
 <template>
   <div>
-    <div
-      class="w-screen h-[40px] bg-[#D9D9D9] font-thin text-[20px] flex justify-center items-center"
-    >
-      商品預約情況
+    <div class="w-full h-[6vw] bg-[#F28383] flex items-center">
+      <button @click="gotoadminfrontpage">
+        <img
+          src="../assets/arrow-left-solid.svg"
+          class="w-[3vw] h-[3vw] ml-[1vw]"
+        />
+      </button>
+      <p class="font-thin text-[3vw] ml-[36vw]">商品預約情況</p>
     </div>
     <div class="mt-[20px]">
       <Order

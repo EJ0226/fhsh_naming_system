@@ -1,8 +1,8 @@
 <template>
-  <!-- <div class="max-w-screen h-full relative">
-    <div class="w-full h-[60px] bg-[#D9D9D9]"> -->
+  <div class="max-w-screen h-full relative">
+    <div class="w-full h-[60px] bg-[#D9D9D9]">
       <p class="text-[36px] text-center font-thin">商品修改</p>
-    <!-- </div>
+    </div>
     <div class="ml-[15px]">
       <img />
       <div class="mt-[20px]">
@@ -72,10 +72,10 @@
         </button>
       </div>
     </div>
-  </div> -->
+  </div>
 </template>
 
-<!-- <style>
+<style>
 .image-list {
   display: flex;
   flex-wrap: wrap;
@@ -85,17 +85,21 @@
   flex: 1;
   margin: 5px;
 }
-</style> -->
+</style>
 
-<!-- <script setup>
-// import axios from "axios";
+<script>
+import axios from "axios";
 
-// axios
-//   .get("http://localhost:8000/items")
-//   .then((response) => console.log(response.data))
-//   .catch((error) => console.error(error));
-
-    handleFileInput = () => {
+//能從後端資料庫去將原有的商品資料做更改
+//axios
+export default {
+  data() {
+    return {
+      imageDataUrls: [],
+    };
+  },
+  methods: {
+    handleFileInput() {
       const files = this.$refs.fileInput.files;
       if (!files.length) return;
 
@@ -115,5 +119,7 @@
         };
         reader.readAsDataURL(file);
       }
+    },
+  },
 };
-</script> -->
+</script>

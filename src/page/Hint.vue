@@ -12,6 +12,7 @@ import SmilePng from "../assets/Smile.png";
         <p class="text-center font-bold text-[20px] mt-[20px]">
           您的商品已成功預購
         </p>
+        //跳出通知
       </div>
       <div class="mt-[20px]">
         <p class="text-center">請匯款到此帳號()</p>
@@ -36,5 +37,5 @@ export default {
       this.$router.push("/shopUser");
     },
   },
-};
+}; //點完確定回到商品總頁面
 </script>

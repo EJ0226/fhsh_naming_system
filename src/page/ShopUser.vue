@@ -1,16 +1,3 @@
-<script setup>
-import searchSvg from "../assets/Search.svg";
-import shoppingcartSvg from "../assets/ShoppingCart.svg";
-import Product from "../components/ProductUser.vue";
-
-const products = [
-  { productName: "帽踢", price: "650" },
-  { productName: "書包", price: "690" },
-  { productName: "棒球外套", price: "1080" },
-  { productName: "帆布袋", price: "235" },
-];
-</script>
-
 <template>
   <div class="max-w-screen">
     <div class="w-full h-[50px] bg-[#D9D9D9] flex">
@@ -48,12 +35,15 @@ const products = [
   </div>
 </template>
 
-<script>
-export default {
-  methods: {
-    goToShoppingCart() {
-      this.$router.push("/shoppingCart");
+<script setup>
+import searchSvg from "../assets/Search.svg";
+import { useRouter } from "vue-router";
+import shoppingcartSvg from "../assets/ShoppingCart.svg";
+import Product from "../components/ProductUser.vue";
+import { reactive } from "vue";
+const products = reactive([]); //商品
+const router = useRouter();
+    goToShoppingCart = () => {
+      router.push("/shoppingCart");
     },
-  },
-};
 </script>

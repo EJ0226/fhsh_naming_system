@@ -4,7 +4,7 @@ const props = defineProps(["product", "quantity"]);
 
 <template>
   <div class="w-full h-full">
-    <div class="flex mt-[5px] ml-[10px]">
+    <div class="flex mt-[5px] ml-[10px] text-[2vw]">
       <p>商品名稱 {{ product }}</p>
       <p class="ml-[10px]">數量 {{ quantity }}</p>
     </div>

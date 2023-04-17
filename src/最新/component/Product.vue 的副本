@@ -1,0 +1,32 @@
+<script setup>
+const props = defineProps(["product", "price"]);
+</script>
+<script>
+export default {
+  methods: {
+    gotoproductpage() {
+      this.$router.push("/productpage");
+    },
+  },
+};
+</script>
+
+<template>
+  <div class="flex mt-[50px]">
+    <div
+      class="h-[25vw] w-[25vw] border-2 border-[#000000] rounded-[2vw]"
+    ></div>
+    <div class="ml-[5vw]">
+      <p class="mt-[2vw] text-[3vw] font-blod">
+        {{ product }}
+      </p>
+      <p class="mt-[2vw] text-[3vw] font-blod">${{ price }}</p>
+      <button
+        @click="gotoproductpage"
+        class="w-[10vw] h-[5vw] text-[#ffffff] rounded-[1.7vw] font-black mt-[2vw] shadow-2xl bg-[#F28383] text-[2vw]"
+      >
+        VIEW
+      </button>
+    </div>
+  </div>
+</template>

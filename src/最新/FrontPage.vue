@@ -1,14 +1,17 @@
 <script setup>
 import searchSvg from "../assets/Search.svg";
-import Product from "../components/ProductAdmin.vue";
-import { reactive } from "vue";
-//axiosfunction 需要嗎?
-//ya
+import shoppingcartSvg from "../assets/ShoppingCart.svg";
+import Product from "../components/Product.vue";
 
-const products = reactive([]);
+const products = [
+  { productName: "帽踢", price: "650" },
+  { productName: "書包", price: "690" },
+  { productName: "棒球外套", price: "1080" },
+  { productName: "帆布袋", price: "235" },
+];
 </script>
 <template>
-  <div class="max-w-screen">
+  <div class="w-screen h-screen">
     <div class="w-full h-[50px] bg-[#D9D9D9] flex">
       <img
         :src="searchSvg"
@@ -19,6 +22,13 @@ const products = reactive([]);
         class="w-[200px] h-[30px] mt-[10px] rounded-[10px] ml-[10px]"
         placeholder="搜尋想查找的商品"
       />
+      <button class="ml-auto" @click="goToShoppingCart">
+        <img
+          :src="shoppingcartSvg"
+          aly="shoppingcartSvg"
+          class="w-[30px] h-[30px]"
+        />
+      </button>
     </div>
     <div
       class="w-full h-[150px] bg-[#D9D9D9] mt-[25px] flex justify-center items-center"
@@ -37,3 +47,13 @@ const products = reactive([]);
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    goToShoppingCart() {
+      this.$router.push("/ShoppingCart");
+    },
+  },
+};
+</script>

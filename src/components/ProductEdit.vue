@@ -6,7 +6,7 @@ const props = defineProps(["product", "price"]);
 </script>
 
 <template>
-  <div class="flex justify-center items-center">
+  <div class="flex mt-[50px]">
     <div class="h-[200px] w-[200px] border-2 border-[#000000]"></div>
 
     <div class="ml-[40px]">

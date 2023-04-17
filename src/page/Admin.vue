@@ -1,7 +1,3 @@
-<script setup>
-import plusSvg from "../assets/Plus.svg";
-</script>
-
 <template>
   <div>
     <div class="w-screen h-[50px] bg-[#D9D9D9] flex">
@@ -29,19 +25,19 @@ import plusSvg from "../assets/Plus.svg";
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  methods: {
-    goToShop() {
-      this.$router.push("/shopAdmin");
-    },
-    goToOrder() {
-      this.$router.push("/Reserve");
-    },
-    goToEdit() {
-      this.$router.push("/Edit");
-    },
-  },
+<!--管理者登入後可以進行操作的總頁面
+ex:瀏覽商品 新增/修改商品 查看訂單-->
+<script setup>
+import plusSvg from "../assets/Plus.svg";
+//axios function
+//希望有甚麼公
+goToShop = () => {
+  $router.push("/shopAdmin");
+};
+goToOrder = () => {
+  router.push("/Reserve");
+};
+goToEdit = () => {
+  router.push("/Edit");
 };
 </script>
