@@ -97,7 +97,6 @@ const loginWithGoogle = async () => {
       </div>
     </div>
 
-    <!-- 添加 Google 登录按钮 -->
     <div class="flex justify-center items-center">
       <div class="py-56"></div>
       <button
@@ -137,18 +136,33 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-// 获取 Firebase 身份验证实例
 const auth = getAuth();
 
-// 登录方法
+// const loginWithGoogle = async () => {
+//   try {
+//     const provider = new GoogleAuthProvider();
+//     await signInWithPopup(auth, provider);
+
+//     console.log("Success!");
+//   } catch (error) {
+//     console.error("Fail!", error);
+//   }
+// };
+
 const loginWithGoogle = async () => {
   try {
     const provider = new GoogleAuthProvider();
     await signInWithPopup(auth, provider);
 
     console.log("Success!");
+
+    redirectToNextPage();
   } catch (error) {
     console.error("Fail!", error);
+  }
+
+  function redirectToNextPage() {
+    window.location.href = "/camerapage";
   }
 };
 </script>

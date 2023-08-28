@@ -41,7 +41,6 @@
         class="bg-[#698694] py-3 px-6 rounded-md text-center shadow-md"
         id="openCameraButton"
         v-if="capturedImage"
-        @click="myFunction"
       >
         <span class="text-white font-semibold text-xl">確定</span>
       </button>
@@ -104,7 +103,21 @@ const takePhoto = () => {
   }
 };
 
-const myFunction = () => {
-  window.forward();
-};
+// const navigateToPage = () => {
+//   if (capturedImage.value) {
+//     // 图片上传成功后，根据条件决定跳转到不同的页面
+//     if (条件) {
+//       // 根据条件跳转到 /dy 页面
+//       router.push({ name: "dy" });
+//     } else {
+//       // 否则跳转到 /fail 页面
+//       router.push({ name: "fail" });
+//     }
+//   }
+// };
+
+// const navigateToPage = () => {
+//   router.push("/dy");
+// };
 </script>
+<!-- @click="navigateToPage" -->
