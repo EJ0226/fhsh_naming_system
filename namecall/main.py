@@ -32,44 +32,45 @@ def get_students_by_name(name: str):
 def get_students_by_student_id(student_id: int):
     return list(collection.find({"student_id": student_id}, {"_id": 0}))
 
+#創建學生資料
 @app.post("/students/")
 async def add_student(student: Student):
     create_student(student)
     return {"message": "Student added successfully"}
-
+#取得所有學生資料
 @app.get("/students/")
 async def list_students():
     students = get_students()
     return {"students": students}
-
+#取得某個班級的學生
 @app.get("/students/classroom/{classroom}")
 async def list_students_by_class(classroom: int):
     students = get_students_by_class(classroom)
     if not students:
         raise HTTPException(status_code=404, detail="Class not found")
     return {"students": students}
-
+#以名字搜尋學生
 @app.get("/students/name/{name}")
 async def list_students_by_name(name: str):
     students = get_students_by_name(name)
     if not students:
         raise HTTPException(status_code=404, detail="Student not found")
     return {"students": students}
-
+#以學號搜尋學生
 @app.get("/students/student_id/{student_id}")
 async def list_students_by_student_id(student_id: int):
     students = get_students_by_student_id(student_id)
     if not students:
         raise HTTPException(status_code=404, detail="Student not found")
     return {"students": students}
-
+#以班級座號搜學生
 @app.get("/students/{classroom}")
 async def list_students_by_class(classroom: int):
     students = get_students_by_class(classroom)
     if not students:
         raise HTTPException(status_code=404, detail="Class not found")
     return {"students": students}
-
+#更改有到、未到、缺席的狀態，預設false
 @app.put("/students/attendance/{student_id}")
 async def mark_attendance(student_id: int, attendance_data: dict):
     student = collection.find_one({"student_id": student_id})
